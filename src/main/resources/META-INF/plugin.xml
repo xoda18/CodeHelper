@@ -1,0 +1,29 @@
+<idea-plugin>
+    <id>com.gurianov.codehelper</id>
+    <name>CodeHelper</name>
+    <description>AI-powered code explanation plugin</description>
+    <vendor>Aleksei Gurianov</vendor>
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow
+            id="CodeHelper"
+            factoryClass="com.gurianov.codehelper.MyToolWindowFactory"
+            anchor="right"
+        />
+        <projectService
+            serviceImplementation="com.gurianov.codehelper.MyService"
+        />
+    </extensions>
+
+    <actions>
+        <action
+            id="com.gurianov.codehelper.AnalyzeAction"
+            class="com.gurianov.codehelper.AnalyzeAction"
+            text="Explain"
+            description="Explains the selected code"
+        >
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
